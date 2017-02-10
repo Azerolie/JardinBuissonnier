@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Le Jardin Buissonnier : Le Blog{% endblock %}
+{% block content %}
+<p> L'organisation des culltures en six jardins différents </p>
+    <p> Et elle change tous les ans pour laisser respirer la terre </p>
+ <div style="padding-left:170px; padding-right:150px;display:flex;flex-wrap: wrap;">    
+
+    
+    
+    <div class="categorie_jardin"> 
+        <img src="{% static 'img/cruciferes.png' %}" alt="cruciferes" style="width:218px; height: auto;"/>
+    </div>
+    <div class="categorie_jardin"> 
+        <img src="{% static 'img/primeurs.png' %}" alt="primeurs" style="width:218px; height: auto;"/>
+    </div>
+    <div class="categorie_jardin"> 
+        <img src="{% static 'img/liliaces.png' %}" alt="liliaces" style="width:218px; height: auto;"/>
+    </div>
+    <div class="categorie_jardin"> 
+        <img src="{% static 'img/cruciferes.png' %}" alt="cruciferes" style="width:218px; height: auto;"/>
+    </div>
+    <div class="categorie_jardin"> 
+        <img src="{% static 'img/cruciferes.png' %}" alt="cruciferes" style="width:218px; height: auto;"/>
+    </div>
+    <div class="categorie_jardin"> 
+        <img src="{% static 'img/engrais.png' %}" alt="engrais" style="width:218px; height: auto;"/>
+    </div>
+    <p> Il n'y a rien qui pousse pour être mangé dans celui-là </p>
+    <p> Ce sont uniquement des plantes qui permettent d'enrichir le sol pour la prochaine rotation </p>
+
+</div>
+{% endblock %}

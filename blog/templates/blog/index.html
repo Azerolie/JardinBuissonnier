@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Le Jardin Buissonnier {% endblock %}
+
+        {% block content %}
+        <div id="sections">
+            <div id="encemoment">    
+                <div class="bandeau_entete"> <span class="titre"> En ce moment </span> </div>
+                <div class="bandeau_pied">  
+                    <span class="description"> Les tomates </span>
+                    <a href="#" class="bouton">Lire plus &#9656; </a>
+                </div>
+            </div>     
+
+            <div id="derniersarticles">    
+                <div class="bandeau_entete">  <span class="titre"> Derniers articles </span> </div>
+                <div class="bandeau_pied"> 
+                <span class="description"> Le jardin au mois de juin </span>
+                <a href="#" class="bouton">Lire plus &#9656; </a>
+                </div>
+            </div>   
+        </div>
+        <div id="quisommesnous">
+            <div class="titre_fond">Qui sommes-nous ?</div>
+            <img src="{% static 'img/mama.jpg' %}" alt="" style="width:240px; height: auto;display: block;margin-left: auto;margin-right: auto;"/>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+            <a href="#" class="bouton_blanc">Lire plus &#9656; </a>
+            <span id="triangle"> <img src="{% static 'img/triangle.svg' %}" alt="" style="width:50px; height: auto;"/></span>
+ 
+    {% endblock%}    
+

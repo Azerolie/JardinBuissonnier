@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Le Jardin Buissonnier : Le Blog{% endblock %}
+{% block content %}
+ <div style="padding-left:150px; padding-right:150px;">
+ <div class="div_container">   
+    <span class="nav_article"> &#9666; Article précédent </span>
+    <span class="nav_article"> Article suivant &#9656;</span>
+ </div>
+
+ <div class="div_container_flex_end">
+ <p class="titre_article">{{ article.titre }}</p>
+ <p class="publication_article">article publié le {{ article.date|date:"DATE_FORMAT" }} à {{ article.date|date:"TIME_FORMAT" }}</p>
+</div>
+
+ <div class="ligne_verte"> &nbsp; </div>
+ 
+ <div class="div_container">
+<img src="{{ article.photo.url }}" class="photos_article"/>
+<div class="contenu_article">{{ article.contenu|linebreaks }}</div>
+ </div>
+ 
+  <div class="div_container" style="padding-top:20px;">   
+    <span class="nav_article"> &#9666; Article précédent </span>
+    <span class="nav_article"> Article suivant &#9656; </span>
+ </div>
+</div>
+{% endblock %}
+
+ 

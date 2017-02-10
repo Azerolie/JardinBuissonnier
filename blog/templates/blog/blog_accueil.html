@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Le Jardin Buissonnier : Le Blog{% endblock %}
+{% block content %}
+ <div style="padding-left:150px; padding-right:150px;">    
+{% for article in derniers_articles %}
+    <p class="titre_article" style="margin:0;">{{ article.titre }}</p>
+    	<div class="ligne_verte"> &nbsp; </div>
+    <div class="liste_article">
+    <div class="image_left"><img src="{{ article.photo.url }}" class="photos_vue_article"/> </div>
+    <div class="article_right">      
+    	
+    	<p>{{ article.contenu|truncatewords_html:40 }}</p>
+        <p><a href="{% url "blog.views.lire" article.id %}" class="bouton_vert">Lire plus &#9656; </a></p>
+    </div>
+    </div>
+{% empty %}
+    <p>Aucun article.</p>
+{% endfor %}
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,4 @@
+<h1>{{ article.titre }}</h1>
+<p class="infos">article publié le {{ article.date|date:"DATE_FORMAT" }}</p>
+<div class="contenu">{{ article.contenu|linebreaks }}</div>
+<img src="{{ article.photo.url }}"/>

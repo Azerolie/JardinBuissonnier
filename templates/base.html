@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />      
+    {% load staticfiles %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>{% block title %}Le Jardin Buissonnier{% endblock %}</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+      
+<header>
+    <div id="entete">
+        <img src="{% static 'img/entete.svg' %}" alt="Le jardin buissonnier" id="entete_image"/>
+    </div>
+</header>
+
+<div id="conteneur">
+<div id="menu">
+<nav class="menu_nav">
+{% block nav %}
+<a href="{% url "accueil.views.page_accueil" %}"><div class="element_menu"> <img src="{% static 'img/accueil.svg' %}" alt="icone accueil" class="icone_menu" />  Accueil</div></a>
+<a href="{% url "jardins.views.jardin_accueil" %}" ><div class="element_menu"> <img src="{% static 'img/auxjardins.svg' %}" alt="icone accueil" class="icone_menu"/> Aux Jardins</div></a>
+<a href="{% url "blog.views.accueil" %}"><div class="element_menu"> <img src="{% static 'img/blog.svg' %}" alt="icone accueil" class="icone_menu" /> Blog</div></a>
+<a href="{% url "contact.views.contact" %}" ><div class="element_menu"> <img src="{% static 'img/contact.svg' %}" alt="icone accueil" class="icone_menu" /> Contact</div></a>
+<a href="#" ><div class="element_menu"> <img src="{% static 'img/monpanier.svg' %}" alt="icone accueil" class="icone_menu" /> Mon Panier</div></a>
+{% endblock %}
+</nav>
+</div>
+    
+    <!-- Structure de la page -->
+    
+    <div id="Global">
+        {% block content %}{% endblock%}    
+    </div>
+
+    {% block aside %}
+    <script type="text/javascript">   
+    console.log('Tut');
+    console.log('page', pageYOffset);
+    window.onscroll = function (e) {
+      
+      var body = document.body,
+        html = document.documentElement;
+
+      var height = Math.max( body.scrollHeight, body.offsetHeight,html.clientHeight, html.scrollHeight, html.offsetHeight );
+      
+      var your_div = document.getElementById('box_menu_lat');
+      
+      console.log('H', height);
+      $('#box_menu_lat').css({
+          'top':  Math.min(Math.max(210 + pageYOffset - 180, 210), height-770)
+      });
+      }
+    </script>
+
+    <div id="box_menu_lat">
+    <div class="menu_lateral">
+    <nav class="menu_lat_nav">
+    {% block menu_lat %}
+    <a href="#"> <div class="e_menu_lat"> <img src="{% static 'img/fleur.svg' %}" class="i_menu_lat"/> Menu</div></a>
+    <a href="#"> <div class="e_menu_lat"> <img src="{% static 'img/fleur.svg' %}" class="i_menu_lat"/> Article suivant</div></a>
+    <a href="#"> <div class="e_menu_lat"> <img src="{% static 'img/fleur.svg' %}" class="i_menu_lat"/> Article précédent</div></a>
+    <a href="#"> <div class="e_menu_lat"> <img src="{% static 'img/fleur.svg' %}" class="i_menu_lat"/> Nous contacter</div></a>
+    <a href="#"> <div class="e_menu_lat" style="color: #dde9af;;"> <img src="{% static 'img/fleur_verte.svg' %}" class="i_menu_lat"/> Retour à l'accueil</div></a>
+    {% endblock %}
+    </nav>
+    </div>
+    <span class="triangle_lat"> <img src="{% static 'img/triangle.svg' %}" alt="" style="width:50px; height: auto;"/></span>
+    </div>
+
+     
+    {% endblock%}    
+     <div style="clear: both;"></div>  
+    <footer>
+        <!-- Pied de page -->
+        <span id="pied"> Le Jardin Buissonnier - Lieu dit Le Buisson - Saint-Pardoux-la-rivière - 24470 </span>
+    </footer>
+    <div id="bambou"> <img src="{% static 'img/bambou.svg' %}" alt="" /> </div>
+</div>
+</body>
+</html>
